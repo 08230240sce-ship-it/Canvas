@@ -517,10 +517,10 @@ canvas.create_arc(
 
 
 # =======================================
-# CAT HOUSE
+# DOG HOUSE
 # =======================================
 
-# Cat house body
+# Dog house body
 canvas.create_rectangle(
     720, 450, 880, 560,
     fill="#d99452",
@@ -528,7 +528,7 @@ canvas.create_rectangle(
     width=4
 )
 
-# Cat house roof
+# Dog house roof
 canvas.create_polygon(
     700, 450,
     800, 370,
@@ -538,114 +538,138 @@ canvas.create_polygon(
     width=4
 )
 
-# Cat house entrance
-canvas.create_oval(
+# Dog house entrance
+canvas.create_arc(
     755, 475, 845, 560,
+    start=0,
+    extent=180,
     fill="#30251f",
     outline="#222222",
     width=3
 )
 
-# Cat house label
+canvas.create_rectangle(
+    755, 517, 845, 560,
+    fill="#30251f",
+    outline="#222222",
+    width=3
+)
+
+# Dog house label
 canvas.create_text(
     800, 580,
-    text="CAT HOUSE",
+    text="DOG HOUSE",
     font=("Arial", 14, "bold"),
     fill="#57301f"
 )
 
 
 # =======================================
-# CAT
+# DOG
 # =======================================
 
-# Cat body
+# Dog body
 canvas.create_oval(
-    780, 510, 825, 540,
-    fill="#f2a65a",
+    770, 510, 825, 545,
+    fill="#c98b52",
     outline="#4d3425",
     width=2,
-    tags="cat"
+    tags="dog"
 )
 
-# Cat head
+# Dog head
 canvas.create_oval(
-    815, 495, 850, 530,
-    fill="#f2a65a",
+    815, 485, 865, 530,
+    fill="#c98b52",
     outline="#4d3425",
     width=2,
-    tags="cat"
+    tags="dog"
 )
 
 # Left ear
 canvas.create_polygon(
-    818, 502,
-    820, 487,
-    832, 500,
-    fill="#dac2aa",
+    820, 495,
+    805, 475,
+    815, 510,
+    fill="#7a4b2a",
     outline="#4d3425",
-    tags="cat"
+    tags="dog"
 )
 
 # Right ear
 canvas.create_polygon(
-    835, 500,
-    845, 487,
-    849, 505,
-    fill="#f2a65a",
+    850, 495,
+    870, 475,
+    865, 515,
+    fill="#7a4b2a",
     outline="#4d3425",
-    tags="cat"
+    tags="dog"
 )
 
-# Left eye
+# Dog eyes
 canvas.create_oval(
-    825, 507, 830, 512,
+    828, 500, 834, 506,
     fill="black",
-    tags="cat"
+    tags="dog"
 )
 
-# Right eye
 canvas.create_oval(
-    838, 507, 843, 512,
+    848, 500, 854, 506,
     fill="black",
-    tags="cat"
+    tags="dog"
 )
 
-# Nose
-canvas.create_polygon(
-    832, 515,
-    837, 515,
-    834, 519,
-    fill="pink",
-    tags="cat"
+# Dog muzzle
+canvas.create_oval(
+    833, 510, 855, 525,
+    fill="#e8c39e",
+    outline="#4d3425",
+    tags="dog"
 )
 
-# Tail
+# Dog nose
+canvas.create_oval(
+    840, 510, 848, 518,
+    fill="black",
+    tags="dog"
+)
+
+# Dog mouth
 canvas.create_arc(
-    770, 495, 810, 535,
+    838, 512, 852, 525,
+    start=200,
+    extent=140,
+    outline="black",
+    width=2,
+    tags="dog"
+)
+
+# Dog tail
+canvas.create_arc(
+    755, 490, 800, 535,
     start=80,
     extent=220,
     style="arc",
-    outline="#0f0801",
+    outline="#7a4b2a",
     width=6,
-    tags="cat"
+    tags="dog"
 )
 
-# Legs
+# Dog legs
 canvas.create_line(
-    790, 532,
-    790, 545,
-    fill="#f2a65a",
-    width=5,
-    tags="cat"
+    785, 535,
+    785, 550,
+    fill="#c98b52",
+    width=6,
+    tags="dog"
 )
 
 canvas.create_line(
-    810, 532,
-    810, 545,
-    fill="#f2a65a",
-    width=5,
-    tags="cat"
+    810, 535,
+    810, 550,
+    fill="#c98b52",
+    width=6,
+    tags="dog"
 )
 
 
@@ -711,41 +735,41 @@ def move_clouds():
 
 
 # =======================================
-# CAT ANIMATION
+# DOG ANIMATION
 # =======================================
 
-cat_x = 0
-cat_direction = 1
+dog_x = 0
+dog_direction = 1
 
 
-def move_cat():
+def move_dog():
 
-    global cat_x
-    global cat_direction
+    global dog_x
+    global dog_direction
 
-    # Move the cat
+    # Move the dog
     canvas.move(
-        "cat",
-        cat_direction * 2,
+        "dog",
+        dog_direction * 2,
         0
     )
 
-    cat_x = cat_x + cat_direction * 2
+    dog_x = dog_x + dog_direction * 2
 
-    # When cat reaches the left side
-    if cat_x <= -150:
+    # When dog reaches the left side
+    if dog_x <= -150:
 
-        cat_direction = 1
+        dog_direction = 1
 
-    # When cat reaches the right side
-    if cat_x >= 120:
+    # When dog reaches the right side
+    if dog_x >= 120:
 
-        cat_direction = -1
+        dog_direction = -1
 
-    # Repeat cat animation
+    # Repeat dog animation
     root.after(
         80,
-        move_cat
+        move_dog
     )
 
 
@@ -754,7 +778,7 @@ def move_cat():
 # =======================================
 
 move_clouds()
-move_cat()
+move_dog()
 
 
 # =======================================
